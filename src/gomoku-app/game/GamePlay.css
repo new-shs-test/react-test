@@ -1,0 +1,143 @@
+/* GamePlay.css */
+
+:root {
+    --board-size: 15; /* Set the default board size */
+    --cell-size: 40px; /* Set the default cell size */
+}
+
+.game-container {
+    display: flex; /* Use flexbox for the container */
+    justify-content: center; /* Center items horizontally */
+}
+
+.gomoku-board {
+    display: grid;
+    grid-template-columns: repeat(var(--board-size), var(--cell-size));
+    grid-template-rows: repeat(var(--board-size), var(--cell-size));
+    background-color: #d2b48c; /* Brown color for the Gomoku board background */
+    border: 2px solid #8b4513; /* Saddle Brown color for the board border */
+    width: fit-content; /* Ensure the board is only as wide as its content */
+    margin-right: 20px; /* Add margin to the right for spacing */
+}
+
+.gomoku-title {
+    text-align: center; /* Center the text */
+}
+
+.board-cell {
+    box-sizing: border-box;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border: 1px solid #8b4513; /* Saddle Brown color for the cell borders */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.userPieceBackground {
+    background-color: #d2b48c;
+    width: fit-content;
+}
+
+.drawStatsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Hover effect with transparent background when allowInput is false */
+.board-cell[data-hover-enabled="false"]:hover {
+    background-color: transparent;
+    cursor: default;
+}
+
+/* Hover effect with the specified background color when allowInput is true */
+.board-cell[data-hover-enabled="true"]:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+/* Ensure a fixed size for both empty and filled cells */
+.board-cell span {
+    font-size: 1.2em;
+    line-height: 1;
+    box-sizing: border-box;
+}
+
+/* Styles for GoPieces */
+.go-piece {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.5em; /* Adjust the font size */
+}
+
+.go-piece-X {
+    background-color: #000; /* Black background color for X */
+    color: transparent; /* Make the text transparent */
+}
+
+.go-piece-O {
+    background-color: #fff; /* White background color for O */
+    color: transparent; /* Make the text transparent */
+}
+
+
+.warning-playing {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    max-width: 400px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center align the content */
+}
+
+.close {
+    float: right;
+    font-size: 20px;
+    color: #777;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #555;
+}
+
+h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #3498db;
+    color: #fff; /* White text color */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 5px;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #3498db; /* Darker green on hover */
+}
+
+/* Additional button style for the "Quit" button */
+button.quit {
+    background-color: #d9534f; /* Red background color */
+}
+
+button.quit:hover {
+    background-color: #c9302c; /* Darker red on hover */
+}
